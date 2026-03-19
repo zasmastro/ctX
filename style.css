@@ -1,0 +1,230 @@
+:root{
+  --bg:#0f1117;
+  --sidebar:#161925;
+  --primary:#00ffc3;
+  --secondary:#8a00ff;
+  --glass:rgba(255,255,255,0.05);
+  --border:rgba(255,255,255,0.12);
+  --text:#e6f7f2;
+  --muted:#83929d;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background: var(--bg);
+  color: var(--text);
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color: inherit;
+}
+
+/* SIDEBAR */
+.sidebar{
+  position: fixed;
+  left:0; top:0; bottom:0;
+  width:220px;
+  background: var(--sidebar);
+  display:flex; flex-direction: column;
+  padding:30px 20px;
+  border-right: 1px solid var(--border);
+  z-index:1000;
+}
+
+.sidebar h2{
+  font-size:1.5rem;
+  font-weight:800;
+  background: linear-gradient(90deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  color: transparent;
+  margin-bottom:40px;
+}
+
+.sidebar a{
+  display:block;
+  padding:12px 15px;
+  margin-bottom:12px;
+  border-radius:10px;
+  transition:.3s;
+  cursor:pointer;
+}
+
+.sidebar a:hover{
+  background: linear-gradient(90deg,var(--primary),var(--secondary));
+  color:#000;
+  font-weight:700;
+}
+
+/* MAIN CONTENT */
+.main{
+  margin-left:240px;
+  padding:40px 30px;
+  min-height:100vh;
+}
+
+/* SECTION TITLES WITH GRADIENT TEXT */
+section h2, #home h1, .card h3{
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* HOME SECTION */
+#home{
+  display:grid;
+  place-items:center;
+  min-height:70vh;
+  text-align:center;
+}
+
+#home h1{
+  font-size:3rem;
+  font-weight:900;
+  margin-bottom:15px;
+}
+
+#home p{
+  font-size:1.2rem;
+  color:var(--muted);
+  max-width:650px;
+}
+
+/* CARDS GRID */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background: var(--glass);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:20px;
+  transition:.3s;
+  backdrop-filter:blur(12px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:150px;
+  text-align:center;
+}
+
+.card:hover{
+  border-color: var(--primary);
+  transform: translateY(-5px);
+}
+
+/* CARD CONTENT */
+.card h3{
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+.btn{
+  display:inline-block;
+  padding:10px 20px;
+  margin-top:12px;
+  border-radius:15px;
+  background: linear-gradient(90deg,var(--primary),var(--secondary));
+  font-weight:700;
+  color:#000;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.btn:hover{
+  filter:brightness(1.2);
+}
+
+/* SKILL DETAIL */
+#skill-detail{
+  margin-top:15px;
+  padding:15px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background: var(--glass);
+  border-radius:20px;
+  border:1px solid var(--border);
+  width:100%;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* SOCIAL FULL CLICKABLE */
+#social-container a{
+  display:block;
+}
+
+#social-container .card{
+  cursor:pointer;
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  border-radius:15px;
+  transition:.3s;
+  border:1px solid var(--border);
+  background: var(--glass);
+}
+
+#social-container .card:hover{
+  border-color: var(--secondary);
+  transform: translateY(-5px);
+}
+
+#social-container .card i{
+  margin-bottom:8px;
+  font-size:1.5rem;
+  color: var(--primary);
+}
+
+#social-container .card span{
+  font-size:1rem;
+  text-align:center;
+  margin-top:5px;
+  color:var(--text);
+}
+
+/* FOOTER */
+footer{
+  margin-top:50px;
+  text-align:center;
+  color: var(--muted);
+  padding:30px 0;
+  font-size:0.9rem;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .sidebar{width:60px;padding:20px 10px;}
+  .sidebar h2{display:none;}
+  .main{margin-left:80px;padding:20px;}
+  #home h1{font-size:2rem;}
+  #home p{font-size:1rem;}
+  .card{min-height:130px;}
+  #skill-detail{max-width:100%;}
+}
